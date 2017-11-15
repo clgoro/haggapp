@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Haggapp</title>
-    <%= csrf_meta_tags %>
+
+     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+ 
+    <title>Mattapp</title>
+    
   </head>
 
   <body>
-    <%= yield %>
+   
+    
+    <div class="col-lg-1 col-offset-2 centered">
+        
+    
+      <%= yield %>
+      <div>
+      <% unless logged_in? %>
+        <%= link_to 'Login', login_path%>
+        <%= link_to 'Sign up', signup_path %>
+      <% else%>
+         <%= link_to 'log_out', logout_path, method: :delete %>
+      <% end%>
+
+      </div>
+      
+  
+    </div>
   </body>
 </html>

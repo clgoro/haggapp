@@ -1,0 +1,17 @@
+<h1> All Matt's Users</h1>
+
+
+
+<% @users.each do |u|%>
+	<ul>
+		<li>
+			<%= u.name%>
+			<%= mail_to u.email, u.email  %>
+			<%= link_to 'Edit', edit_user_path(u)  %>
+			<%= link_to 'Show', user_path(u)  %>
+			<%= link_to 'Delete', user_path(u), method: :delete, data: {confirm: "Are you sure?"}  %>
+		
+		</li>
+
+	</ul>
+<% end%>

@@ -1,0 +1,26 @@
+<% if @post.errors.any?%>
+<ul>
+  <% @post.errors.full_messages.each do |msg|%>
+  <li><%= msg %></li>
+  <% end%>
+</ul>
+<% end%>
+
+<%= form_for @post do |p| %>
+
+<p>
+<%= p.label :title%><br/>
+<%= p.text_field :title%>
+</p> 
+<p>
+<%= p.label :description%><br/>
+<%= p.text_area :description%>
+</p>
+
+<p>
+
+<%= p.submit %>
+</p>
+
+
+<% end%>

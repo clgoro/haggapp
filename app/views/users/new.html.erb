@@ -1,0 +1,12 @@
+
+<% unless  current_user %>
+<div class="container">
+<h3>Matt's Community Platform</h3><br>
+<h3>Sign up</h3>
+</div>
+ <%= render 'form' %>
+<% else %>
+
+<%= link_to "New post", new_post_path %>
+
+<% end %>

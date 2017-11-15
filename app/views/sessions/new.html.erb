@@ -1,0 +1,29 @@
+<h1>log in</h1>
+
+
+<%= form_for (:sessions) do |p| %>
+
+<p>
+<%= p.label :email%><br/>
+<%= p.email_field :email%>
+</p>
+<p>
+<%= p.label :password%><br/>
+<%= p.password_field :password%>
+</p>
+
+<p>
+
+<%= p.submit %>
+</p>
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState()"; data-auto-logout-link= "true" > 
+</fb:login-button>
+
+<div id="status">
+
+
+
+
+
+<% end%>

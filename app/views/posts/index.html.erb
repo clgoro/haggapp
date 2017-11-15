@@ -1,0 +1,30 @@
+<h1>Listed articles</h1>
+<%#= render 'post', obj: @post %>
+
+<% @post.each do |p| %>
+<% if logged_in? && (current_user == p.user||current_user.admin?)%>
+<ul>
+<li><%= p.title %>
+	<%= p.description %>
+	<%#= link_to 'Edit', edit_post_path(p)  %>
+	<%= link_to 'Show', post_path(p)  %>
+	<%= link_to 'Delete', post_path(p), method: :delete, data: {confirm: "Are you sure?"}  %>
+	<%#= p.user.name %>
+	<%= time_ago_in_words(p.created_at) %> ago,
+
+
+
+last updated: <%= time_ago_in_words(p.updated_at) %> ago</small>
+
+</ul>
+<% end%>
+<% end%>
+
+
+<% if current_user.admin?%>
+<%= link_to "Email", users_path(session[:user_id]) %>
+<% end%>
+
+
+<%= link_to 'Profile', user_path(session[:user_id])%>
+
