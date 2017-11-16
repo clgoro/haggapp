@@ -20,6 +20,7 @@ gem 'hirb'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'jquery-rails'
   gem 'rails-erd', '~> 1.5', '>= 1.5.2'
+  
 #gem 'retina_tag', '~> 1.4', '>= 1.4.1'
 #gem 'sass-flexi', '~> 1.0', '>= 1.0.6'
 
