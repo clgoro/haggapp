@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
 	before_action :set_post, only: [:edit, :show, :update, :destroy]
 
 	def index
@@ -52,7 +53,7 @@ class PostsController < ApplicationController
 	
 	private
 	def post_params
-		params.require(:post).permit(:title, :description, :name, :published_on, :content)
+		params.require(:post).permit(:title, :description, :name, :published_on, :content, :all_tags)
 	end
 
 	def require_same_user

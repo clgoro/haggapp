@@ -9,4 +9,10 @@ Rails.application.routes.draw do
 	get 'login' => 'sessions#new'
 	post 'login' => 'sessions#create'
 	get 'logout' => 'sessions#destroy'
- end
+  # get 'posts/index'
+  #
+  # get 'posts/create'
+
+  get 'tags/:tag', to: 'posts#index', as: "tag"
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+end

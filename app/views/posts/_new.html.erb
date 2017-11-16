@@ -1,0 +1,16 @@
+<div class="row text-center">
+     <%= form_for(Post.new, remote: true) do |f| %>
+     <div class="large-10 large-centered columns">
+          <%= f.text_field :title, placeholder: "title" %>
+     </div>
+     <div class="large-10 large-centered columns">
+          <%= f.text_area :description, placeholder: "post", row: 5 %>
+     </div>
+     <div class="large-10 large-centered column">
+          <%= f.text_field :all_tags, placeholder: "Tags seperated with comma" %>
+     </div>
+     <div class="large-10 large-centered columns">
+          <%= f.submit "Submit", class: "button" %>
+     </div>
+     <% end %>
+</div>

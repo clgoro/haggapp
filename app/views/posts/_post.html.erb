@@ -1,4 +1,4 @@
-<%#= link_to "Create new post", new_post_path %>
+
 <table class="table table-striped table-border">
 	<thead>
 		<tr>
@@ -18,8 +18,7 @@
 				<td><%= truncate(p.description) %></td>
 				<td><%= p.user.try(:email) %></td>
 				<td><%= time_ago_in_words(p.created_at) %> ago</td>
-				<%#= raw p.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
-				<td>Tags will go here</td>
+				<td><%= raw tag_links(post.all_tags) %></td>
 				<td>
 					<%= link_to 'View full post', post_path(p)  %>
 				</td>
@@ -28,3 +27,4 @@
 	<% end %>
 	</tbody>
 </table>
+

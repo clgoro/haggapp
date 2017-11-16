@@ -11,8 +11,11 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
 //= require retina_tag
+
+
+
+$(function(){ $(document).foundation(); });
 
