@@ -2,7 +2,12 @@ class PostsController < ApplicationController
 	before_action :set_post, only: [:edit, :show, :update, :destroy]
 
 	def index
-		@post = Post.all
+		@post = Post.all.order(created_at: :desc)
+		@posts = if params[:tag]
+      		Post.tagged_with(params[:tag]).order(created_at: :desc)
+    		else
+      		Post.all.order(created_at: :desc)
+    	end
 	end
 
 	def new
@@ -34,13 +39,9 @@ class PostsController < ApplicationController
 		if @post.update(post_params)
 			flash[:notice] = "Post was successfully updated"
 			redirect_to post_path(@post)
-
-	else
-
-	render 'edit'
-
-	end
-
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
@@ -51,7 +52,7 @@ class PostsController < ApplicationController
 	
 	private
 	def post_params
-		params.require(:post).permit(:title, :description)
+		params.require(:post).permit(:title, :description, :name, :published_on, :content)
 	end
 
 	def require_same_user
