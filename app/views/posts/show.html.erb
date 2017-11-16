@@ -1,3 +1,5 @@
+<div class="container">
+	
 <h1>Showing selected article</h1>
 
 <% if logged_in? && current_user == (@post.user || current_user.admin?)%>
@@ -13,3 +15,4 @@
 <% end%>
 
 <%= link_to "Index", posts_path %>
+</div>

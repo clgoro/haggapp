@@ -14,7 +14,11 @@ class UsersController < ApplicationController
 		if @user.save
 			session[:user_id] = @user.id
 			flash[:success] = "Welcome to Matt's Plattform #{@user.name}"
-			redirect_to user_path(@user)
+			if @user.admin? 
+				redirect_to posts_path
+			else
+				redirect_to new_post_path
+			end
 		else
 			render 'new'
 		end

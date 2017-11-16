@@ -5,6 +5,7 @@
      <div class="row mt pt">
           <div class="large-5 columns">
                <div class="top-pad glassy-bg">
+                    <h4>Create New Post</h4>
                     <%= render partial: "posts/new" %>
                </div>
                <div class="tags-cloud glassy-bg">
@@ -16,7 +17,7 @@
           </div>
           <div class="large-7 columns" id="posts">
                <h1>Latest Posts</h1>
-               <%= render 'post', obj: @post %>
+               <%= render 'post', obj: @posts %>
           </div>
      </div>
      <% if current_user.admin?%>

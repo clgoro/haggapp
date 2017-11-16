@@ -1,5 +1,8 @@
 <div class="row text-center">
-     <%= form_for(Post.new, remote: true) do |f| %>
+     <%= form_for(Post.new, local: true) do |f| %>
+     <div class="large-10 large-centered columns">
+          <%= f.text_field :person_name, placeholder: "Enter person's name" %>
+     </div>
      <div class="large-10 large-centered columns">
           <%= f.text_field :title, placeholder: "title" %>
      </div>

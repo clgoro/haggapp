@@ -4,6 +4,7 @@
 		<tr>
 			<td>Title</td>
 			<td>Description</td>
+			<td>Name</td>
 			<td>Email</td>
 			<td>Created Date</td>
 			<td>Tags</td>
@@ -16,9 +17,10 @@
 			<tr>
 				<td><%= p.title %></td>
 				<td><%= truncate(p.description) %></td>
+				<td><%= p.person_name %></td>
 				<td><%= p.user.try(:email) %></td>
 				<td><%= time_ago_in_words(p.created_at) %> ago</td>
-				<td><%= raw tag_links(post.all_tags) %></td>
+				<td><%= raw tag_links(p.all_tags) %></td>
 				<td>
 					<%= link_to 'View full post', post_path(p)  %>
 				</td>

@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 	before_action :set_post, only: [:edit, :show, :update, :destroy]
 
 	def index
-		@post = Post.all.order(created_at: :desc)
 		@posts = if params[:tag]
       		Post.tagged_with(params[:tag]).order(created_at: :desc)
     		else
@@ -20,6 +19,7 @@ class PostsController < ApplicationController
 		# render plain: params[:article].inspect
 		# @user = User.new(params[:id])
 		@post = Post.new(post_params)
+		byebug
 		@post.user = current_user
 		if @post.save
 			flash[:notice] = "Article was successfully created"
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
 	
 	private
 	def post_params
-		params.require(:post).permit(:title, :description, :name, :published_on, :content, :all_tags)
+		params.require(:post).permit(:title, :description, :name, :published_on, :content, :all_tags, :person_name)
 	end
 
 	def require_same_user
