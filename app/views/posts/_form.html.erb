@@ -1,10 +1,10 @@
 <div class="row text-center">
      <%= form_for(@post, local: true) do |f| %>
      <div class="large-10 large-centered columns">
-          <%= f.text_field :title, placeholder: "title" %>
+          <%= f.text_field :title, placeholder: "Idea" %>
      </div>
      <div class="large-10 large-centered columns">
-          <%= f.text_area :description, placeholder: "post", row: 5 %>
+          <%= f.text_area :description, placeholder: "Description", row: 5 %>
      </div>
      <div class="large-10 large-centered column">
           <%= f.text_field :all_tags, placeholder: "Tags seperated with comma" %>
