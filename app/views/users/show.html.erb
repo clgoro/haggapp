@@ -1,0 +1,5 @@
+<h1>Welcome to <%= @user.name%>'s page</h1>
+
+<%= gravatar_for @user %>
+
+<%= render 'posts/post', obj: @user.posts %>

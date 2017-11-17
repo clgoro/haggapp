@@ -1,14 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Haggapp</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="facebook.js"></script>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+
+  <!-- Content here -->
+  <!-- <body background="http://d3n8a8pro7vhmx.cloudfront.net/matthaggman/pages/13/meta_images/original/Matt-Haggman-Share-Image.jpg?1501587824"> -->
+    <header class="masterhead" style="background-color: 5371a3;"> 
+    
+      <div class="jumbotron">
+        <img src="http://d3n8a8pro7vhmx.cloudfront.net/matthaggman/pages/13/meta_images/original/Matt-Haggman-Share-Image.jpg?1501587824" width="100%">
+      </div>
+        
+    </header>
+    
+      <%= yield %>
+    <%= javascript_include_tag "application" %>
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+
+        <div id="status">
+        </div>
+      <div class="container-fluid">
+        <div class="row text-center">
+      <% unless logged_in? %>
+        <%= link_to 'Login', login_path%>
+        <%= link_to 'Sign up', signup_path %>
+        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+      <% else%>
+         <%= link_to 'log_out', logout_path %>
+      <% end%>
+    </div>
+      </div>
+
+      <footer>
+        <div class="container-fluid">
+          <div class="page-header">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrGoz4E124n_jzYBciO7D4qN-rRXcAqKGi_QZXwW2jkLl0tGAp">
+          </div>
+        </div>
+      </footer>
   </body>
 </html>

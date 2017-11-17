@@ -19,6 +19,9 @@ class PostsController < ApplicationController
 		# render plain: params[:article].inspect
 		# @user = User.new(params[:id])
 		@post = Post.new(post_params)
+
+		# byebug
+
 		@post.user = current_user
 		if @post.save
 			flash[:notice] = "Article was successfully created"
