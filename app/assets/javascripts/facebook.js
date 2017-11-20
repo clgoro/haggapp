@@ -5,11 +5,11 @@ $(function(){
 		event.preventDefault();
 		var token = FB.getAccessToken();
 		console.log(token)
-		// if (token){
-		// 	window.location = $(evt.target).attr('href')+ '?token=' + token;
-		// }else {
-		// 	alert("Please login to Facebook first.");
-		// }
+		if (token){
+			window.location = $(event.target).attr('href')+ '?token=' + token;
+		}else {
+			alert("Please login to Facebook first.");
+		}
 	})
 });
 window.fbAsyncInit = function() {
