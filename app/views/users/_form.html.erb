@@ -1,48 +1,43 @@
 <div class="container-fluid">
 	<div class="row text-center">
-<ul>
-	<% @user.errors.full_messages.each do |msg|%>
-	<li><%= msg %></li>
-	<% end%>
-</ul>
+		<ul>
+			<% @user.errors.full_messages.each do |msg|%>
+			<li><%= msg %></li>
+			<% end%>
+		</ul>
 
-<%= form_for @user do |p| %>
+		<%= form_for @user do |p| %>
 
-<p>
-<%= p.label :Username%><br/>
-<%= p.text_field :name%>
-</p>
-<p>
-<%= p.label :email%><br/>
-<%= p.email_field :email%>
-</p>
-<p>
-<%= p.label :password%><br/>
-<%= p.password_field :password%>
-</p>
-
-<p>
-<%= p.label :password_confirmation%><br/>
-<%= p.password_field :password_confirmation%>
-</p>
-
-<p>
-
-<%= p.button :Create_User %>
-</p>
-
-<p>
-
-	<div id="fb-root"></div>
-	<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+			<p>
+				<%= p.label :Username%><br/>
+				<%= p.text_field :name%>
+			</p>
+			<p>
+				<%= p.label :email%><br/>
+				<%= p.email_field :email%>
+			</p>
+			<p>
+				<%= p.label :password%><br/>
+				<%= p.password_field :password%>
+			</p>
+			<p>
+				<%= p.label :password_confirmation%><br/>
+				<%= p.password_field :password_confirmation%>
+			</p>
+			<p>
+				<%= p.button :Create_User %>
+			</p>
+			<p>
+				<div id="fb-root"></div>
+				<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
 
 
-<%#= link_to('Share Access token with Rails', facebook_path, id: "fb-toke") %>
-	<%#= render 'facebook/facebook' %>
-</p>
+				<%= link_to('Share Access token with Rails', facebook_token_path, id: "fb-token") %>
+				<%#= render 'facebook/facebook' %>
+			</p>
 
 
-<%= link_to "Index", posts_path unless 'new' %>
-<% end%>
-</div>
+			<%= link_to "Index", posts_path unless 'new' %>
+		<% end%>
+	</div>
 </div>

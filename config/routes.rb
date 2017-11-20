@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 	post 'login' => 'sessions#create'
 	get 'logout' => 'sessions#destroy'
 
-	get 'facebook' => 'facebook#accept_token'
+	get 'facebook/token' => 'facebook#token'
   # get 'posts/index'
   #
   # get 'posts/create'
