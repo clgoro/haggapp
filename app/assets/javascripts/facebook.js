@@ -7,6 +7,7 @@ $(function(){
 				window.location = $(event.target).attr('href')+ '?token=' + ar.accessToken;
 			}
 		}, {scope: 'public_profile, email, user_friends'});
+		checkLoginState();
 	})
 });
 window.fbAsyncInit = function() {

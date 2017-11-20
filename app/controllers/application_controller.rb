@@ -4,10 +4,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
  
   def current_user
-	 @current_user ||= User.where(id: session[:user_id]).first if session[:user_id]
+	    @current_user ||= User.find(session[:user_id]["id"]) if session[:user_id]
   end
 
   def logged_in?
+    puts "logged_in: #{current_user}"
   	!!current_user
   end
 

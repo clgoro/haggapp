@@ -28,13 +28,19 @@
 				<%= p.button :Create_User %>
 			</p>
 			<p>
-				<div id="fb-root"></div>
-				<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" onlogin="checkLoginState();"></div>
+			<!-- 	<div id="fb-root"></div>
+				<div class="fb-login-button" id="login-link" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" onlogin="checkLoginState();"></div> -->
 
 
 				<%#= link_to('Share Access token with Rails', facebook_token_path, id: "fb-token") %>
 				<%#= render 'facebook/facebook' %>
 				<!-- <a href="" id="login-link">Log in</a> -->
+				
+				<% if logged_in? %>
+					<%= "user logged in" %>
+				<% else %>
+					<%= "logged out" %>
+				<% end%>
 				<%= link_to('Login with Facebook', facebook_token_path, id: "login-link") %>
 
 			</p>
