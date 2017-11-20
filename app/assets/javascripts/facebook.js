@@ -1,13 +1,4 @@
 $(function(){
-	$('#fb-token').click(function(event){
-		event.preventDefault();
-		var token = FB.getAccessToken();
-		if (token){
-			window.location = $(event.target).attr('href')+ '?token=' + token;
-		}else {
-			alert("Please login to Facebook first.");
-		}
-	})
 	$('#login-link').click(function(event){
 		event.preventDefault();
 		FB.login(function(response){
@@ -16,12 +7,6 @@ $(function(){
 				window.location = $(event.target).attr('href')+ '?token=' + ar.accessToken;
 			}
 		}, {scope: 'public_profile, email, user_friends'});
-		// var token = FB.getAccessToken();
-		// if (token){
-		// 	window.location = $(event.target).attr('href')+ '?token=' + token;
-		// }else {
-		// 	alert("Please login to Facebook first.");
-		// }
 	})
 });
 window.fbAsyncInit = function() {

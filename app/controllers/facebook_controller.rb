@@ -1,5 +1,7 @@
 class FacebookController < ApplicationController
 	def token
+    puts "**** FB LOGIN ****"
+
   	profile = Facebook.profile_for(params[:token])
   	current_user = User.exists?(fb_id: profile['id'])
 
@@ -14,7 +16,7 @@ class FacebookController < ApplicationController
       current_user.token = params["action"]   
       current_user.password = profile['id']
       current_user.password_confirmation = profile['id']
-      current_user.save
+      current_user.save!
       redirect_to root_path
     end
 
