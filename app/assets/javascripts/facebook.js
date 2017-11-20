@@ -8,6 +8,19 @@ $(function(){
 			alert("Please login to Facebook first.");
 		}
 	})
+	$('#login-link').click(function(event){
+		event.preventDefault();
+		FB.login(function(response){
+			var ar = response.authResponse;
+			console.dir(ar);
+		})
+		// var token = FB.getAccessToken();
+		// if (token){
+		// 	window.location = $(event.target).attr('href')+ '?token=' + token;
+		// }else {
+		// 	alert("Please login to Facebook first.");
+		// }
+	})
 });
 window.fbAsyncInit = function() {
 	FB.init({
