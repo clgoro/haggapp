@@ -1,10 +1,7 @@
-console.log("hello facebook")
 $(function(){
 	$('#fb-token').click(function(event){
-		console.log("Fb.click")
 		event.preventDefault();
 		var token = FB.getAccessToken();
-		console.log(token)
 		if (token){
 			window.location = $(event.target).attr('href')+ '?token=' + token;
 		}else {
@@ -13,7 +10,6 @@ $(function(){
 	})
 });
 window.fbAsyncInit = function() {
-	console.log("fbAsyncInit");
 	FB.init({
 	  appId      : '1279020578871311',
 	  cookie     : true,  // enable cookies to allow the server to access
@@ -21,6 +17,8 @@ window.fbAsyncInit = function() {
 	  xfbml      : true,  // parse social plugins on this page
 	  version    : 'v2.8' // use graph api version 2.8
 	});
+
+	checkLoginState();
 
 	// Now that we've initialized the JavaScript SDK, we call
 	// FB.getLoginStatus().  This function gets the state of the
@@ -33,14 +31,13 @@ window.fbAsyncInit = function() {
 	//    your app or not.
 	//
 	// These three cases are handled in the callback function.
-	FB.getLoginStatus(function(response) {
-	  statusChangeCallback(response);
-	});
+	// FB.getLoginStatus(function(response) {
+	//   statusChangeCallback(response);
+	// });
 };
 
 // Load the SDK asynchronously
 (function(d, s, id) {
-	console.log("hello fb-sdk")
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
@@ -55,22 +52,15 @@ window.fbAsyncInit = function() {
 //     document.getElementById('greeting').innerHTML = response.email;
 //   });
 
-// FB.getLoginStatus(function(response) {
-//   if (response.status === 'connected') {
-//     var accessToken = response.authResponse.accessToken;
-//   } 
-// });
-
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
-  console.log('statusChangeCallback');
-  console.log(response);
   // The response object is returned with a status field that lets the
   // app know the current login status of the person.
   // Full docs on the response object can be found in the documentation
   // for FB.getLoginStatus().
   if (response.status === 'connected') {
     // Logged into your app and Facebook.
+    console.log("Fbconnected")
     testAPI();
 
   } else {
