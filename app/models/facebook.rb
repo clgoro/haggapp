@@ -1,7 +1,3 @@
-	require 'open-uri'
-	require 'json'
-# <script src="facebook.js">
-# </script>
 class Facebook
   def self.profile_for(token)
     url = 'https://graph.facebook.com/me'
