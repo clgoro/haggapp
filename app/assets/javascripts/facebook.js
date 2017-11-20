@@ -12,8 +12,10 @@ $(function(){
 		event.preventDefault();
 		FB.login(function(response){
 			var ar = response.authResponse;
-			console.dir(ar);
-		}, {scope: 'public_profile'});
+			if (ar) {
+				window.location = $(event.target).attr('href')+ '?token=' + ar.accessToken;
+			}
+		}, {scope: 'public_profile, email, user_friends'});
 		// var token = FB.getAccessToken();
 		// if (token){
 		// 	window.location = $(event.target).attr('href')+ '?token=' + token;
