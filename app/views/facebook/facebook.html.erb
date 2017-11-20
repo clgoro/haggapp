@@ -3,18 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<script src="facebook.js"></script>
 </head>
 <body>
 	
 </body>
 
-  <fb:login-button data-auto-logout-link="true"
-    scope="public_profile,email" onlogin="checkLoginState();">
-  </fb:login-button>
 
-  <div id="status">
-  </div>
+	<div id="fb-root"></div>
+	<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
 
-<%#= link_to('Share Access token with Rails', facebook_path, id: "fb-toke") %>
+	<%#= link_to('Share Access token with Rails', facebook_path, id: "fb-toke") %>
 </html>

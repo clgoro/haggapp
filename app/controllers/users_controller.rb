@@ -42,7 +42,6 @@ class UsersController < ApplicationController
 			render 'new'
 			end
 		end
-	end
 
 	
 	def edit
@@ -87,3 +86,4 @@ class UsersController < ApplicationController
 	end
 
 end
+
