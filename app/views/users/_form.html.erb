@@ -11,7 +11,7 @@
 <p>
 <%= p.label :Username%><br/>
 <%= p.text_field :name%>
-</p> 
+</p>
 <p>
 <%= p.label :email%><br/>
 <%= p.email_field :email%>
@@ -29,6 +29,17 @@
 <p>
 
 <%= p.button :Create_User %>
+</p>
+
+<p>
+	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-auto-logout-link="true">
+	</fb:login-button>
+
+	<div id="status">
+	</div>
+
+<%#= link_to('Share Access token with Rails', facebook_path, id: "fb-toke") %>
+	<%#= render 'facebook/facebook' %>
 </p>
 
 

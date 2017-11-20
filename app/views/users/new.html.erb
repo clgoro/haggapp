@@ -1,13 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="facebook.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+
+
 
 <% unless  current_user %>
 <div class="container-fluid">
 	<div class="rwo text-center">
 <h3>Sign up</h3>
  <%= render 'form' %>
+
 <% else %>
 
 <%= link_to "New post", new_post_path %>
 
 <% end %>
+</div>
 </div>
 </div>

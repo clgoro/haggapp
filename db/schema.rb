@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117225359) do
+ActiveRecord::Schema.define(version: 20171119234005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "facebooks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -21,22 +26,6 @@ ActiveRecord::Schema.define(version: 20171117225359) do
     t.string "title"
     t.text "description"
     t.integer "user_id"
-    t.string "person_name"
-  end
-
-  create_table "taggings", force: :cascade do |t|
-    t.bigint "post_id"
-    t.bigint "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_taggings_on_post_id"
-    t.index ["tag_id"], name: "index_taggings_on_tag_id"
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "person_name"
   end
 
@@ -65,6 +54,8 @@ ActiveRecord::Schema.define(version: 20171117225359) do
     t.datetime "updated_at", null: false
     t.string "email"
     t.integer "post_id"
+    t.string "token"
+    t.bigint "fb_id"
   end
 
   add_foreign_key "taggings", "posts"

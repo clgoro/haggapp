@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+	get 'users/new'
 	root 'users#new'
 
 	resources :posts
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
 	get 'login' => 'sessions#new'
 	post 'login' => 'sessions#create'
 	get 'logout' => 'sessions#destroy'
+
+	get 'facebook' => 'facebook#accept_token'
   # get 'posts/index'
   #
   # get 'posts/create'

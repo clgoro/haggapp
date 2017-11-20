@@ -7,6 +7,10 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+      <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application" %>
@@ -17,6 +21,7 @@
   <!-- Content here -->
   <!-- <body background="http://d3n8a8pro7vhmx.cloudfront.net/matthaggman/pages/13/meta_images/original/Matt-Haggman-Share-Image.jpg?1501587824"> -->
     <body>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <header class="masterhead" style="background-color: 5371a3;"> 
     
       <div class="jumbotron">
@@ -26,20 +31,23 @@
     </header>
     
       <%= yield %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
 
-        <div id="status">
-        </div>
-      <div class="container-fluid">
-        <div class="row text-center">
-      <% unless logged_in? %>
-        <%= link_to 'Login', login_path%> /
-        <%= link_to 'Sign up', signup_path %>
-      <% else%>
-         <%= link_to 'log_out', logout_path %>
-      <% end%>
+  <div id="status">
+  </div>
+  <div class="container-fluid">
+  <div class="row text-center">
+  <% unless logged_in? %>
+    <%= link_to 'Login', login_path%> /
+    <%= link_to 'Sign up', signup_path %>
+  <% else%>
+    <%= link_to 'log_out', logout_path %>
+  <% end%>
+  </div>
     </div>
-      </div>
-
+    
       <footer>
         <div class="container-fluid">
           <div class="page-header">

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 	before_action :set_user, only: [:edit, :update, :show, :destroy]
+	
+
 
 	def index
 		@users = User.all
@@ -9,21 +11,40 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
+	# def ajax_create response
+		
+	# profile = Facebook.profile_for(params[:fb_token])
+ #    u = User.exists?(fb_id: profile['id'])
+
+ #    unless u
+
+ #      u = User.create(
+ #        name: profile['name'], 
+ #        email: profile['email'], 
+ #        fb_id: profile['id']
+ #      ) 
+ #    end
+ #    u.token = params[:fb_token]
+ #    u.save
+	# end
+
 	def create
 		@user = User.new(user_params)
-		if @user.save
-			session[:user_id] = @user.id
-			flash[:success] = "Welcome to Matt's Plattform #{@user.name}"
-			if @user.admin? 
-				redirect_to posts_path
+			if @user.save
+				session[:user_id] = @user.id
+				flash[:success] = "Welcome to Matt's Plattform #{@user.name}"
+				if @user.admin? 
+					redirect_to posts_path
+				else
+					redirect_to new_post_path
+				end
 			else
-				redirect_to new_post_path
-			end
-		else
 			render 'new'
+			end
 		end
-
 	end
+
+	
 	def edit
 		
 
@@ -53,6 +74,8 @@ class UsersController < ApplicationController
 		end
 
 	end
+
+
 
 	private
 
