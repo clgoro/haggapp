@@ -13,7 +13,7 @@ $(function(){
 		FB.login(function(response){
 			var ar = response.authResponse;
 			console.dir(ar);
-		})
+		}, {scope: 'public_profile'});
 		// var token = FB.getAccessToken();
 		// if (token){
 		// 	window.location = $(event.target).attr('href')+ '?token=' + token;
