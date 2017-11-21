@@ -10,7 +10,6 @@ class FacebookController < ApplicationController
 
     if reg_user
       session['user_id'] = reg_user
-      # puts @current_user
       redirect_to root_path
     else
       reg_user = User.create(
