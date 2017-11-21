@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'json'
+
 class Facebook
   def self.profile_for(token)
   	puts "*** Fb-token; #{token} ***"
