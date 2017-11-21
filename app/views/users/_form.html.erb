@@ -6,28 +6,7 @@
 			<% end%>
 		</ul>
 
-		<%= form_for @user do |p| %>
-
-			<p>
-				<%= p.label :Username%><br/>
-				<%= p.text_field :name%>
-			</p>
-			<p>
-				<%= p.label :email%><br/>
-				<%= p.email_field :email%>
-			</p>
-			<p>
-				<%= p.label :password%><br/>
-				<%= p.password_field :password%>
-			</p>
-			<p>
-				<%= p.label :password_confirmation%><br/>
-				<%= p.password_field :password_confirmation%>
-			</p>
-			<p>
-				<%= p.button :Create_User %>
-			</p>
-			<p>
+		
 			<!-- 	<div id="fb-root"></div>
 				<div class="fb-login-button" id="login-link" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false" onlogin="checkLoginState();"></div> -->
 
@@ -36,17 +15,12 @@
 				<%#= render 'facebook/facebook' %>
 				<!-- <a href="" id="login-link">Log in</a> -->
 				
-				<% if logged_in? %>
-					<%= "user logged in" %>
-				<% else %>
-					<%= "logged out" %>
-				<% end%>
-				<%= link_to('Login with Facebook', facebook_token_path, id: "login-link") %>
-
-			</p>
-
-
+			<% if logged_in? %>
+				<%= "user logged in" %>
+			<% else %>
+				<%= "logged out" %>
+			<% end%>
+			<%= link_to('Login with Facebook', facebook_token_path, id: "login-link") %>
 			<%= link_to "Index", posts_path unless 'new' %>
-		<% end%>
 	</div>
 </div>
